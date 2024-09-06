@@ -17,3 +17,13 @@ Project 21 -->
 2. python manage.py runserver
 3. Follow steps given in Pdf or in readme.txt
 
+Project 22 -->
+1. change Directory --> cd 22_project
+2. python manage.py runserver
+3. Follow steps given in Pdf or in readme.txt
+
+Project 23 -->
+1. change Directory --> cd 22_project
+2. Install --> pip install djangorestframework-simplejwt
+2. python manage.py runserver
+3. Follow steps given in Pdf or in readme.txt
