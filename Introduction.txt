@@ -1,1 +1,12 @@
 This is introduction page and contains the table of contents.
+
+Setting Steps
+
+    Step1 : Create a Account in Git Hub and Sign In
+    Step2 : Create a repository and Copy the code 
+    Step3 : Create a Empty Folder in local Machine
+    Step4 : Change the terminal to that directory.
+    Step5 : git init
+    Step6 : git remote add origin pastecodelink
+    Step7 : git pull origin main
+
