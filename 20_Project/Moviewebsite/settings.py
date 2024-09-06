@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'Moviewebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rest_21_movies',
+        'NAME': 'rest_20_movies',
         'USER' : 'root',
         'PASSWORD': ''
     }
