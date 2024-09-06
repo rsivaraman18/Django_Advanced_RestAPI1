@@ -1,6 +1,6 @@
 This is introduction page and contains the table of contents.
 
-Setting Steps
+Setting Steps to Update in GitHub Repository
 
     Step1 : Create a Account in Git Hub and Sign In
     Step2 : Create a repository and Copy the code 
