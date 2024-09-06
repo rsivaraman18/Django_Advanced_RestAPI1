@@ -1,0 +1,18 @@
+To Set the Virtual Environment & Run the Project.
+Here the Virtual Environment is set common to all Project.
+
+1. Step1: python -m venv .djrest-venv
+2. Step2: .djrest-venv\Scripts\activate
+3. Step3: pip install djangorestframework
+4. Step4: pip install mysqlclient
+
+5.Change directory to your desired Project
+    Eg: cd 21_project
+6.Run Project 
+    python manage.py runserver
+
+
+Project 21 --> 
+1. change Directory --> cd 21_project
+2. python manage.py runserver
+3. Follow steps given in Pdf or in readme.txt
