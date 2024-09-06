@@ -9,8 +9,9 @@ Setting Steps to Update in GitHub Repository
     Step5 : git init
     Step6 : git remote add origin pastecodelink
     Step7 : git pull origin main
-    Step8 : git add .
-    Step9 : git commit -m "steps updated"
+
+    Step8  : git add .
+    Step9  : git commit -m "steps updated"
     Step10 : git branch -a
     Step11 : git branch -M main
     step12 : git branch -a  
@@ -18,3 +19,10 @@ Setting Steps to Update in GitHub Repository
     step14 :
     step15 :
 
+TABLE OF CONTENT (Please see Complete Details Docs)
+PROJECT  PURPOSE        
+21      FULL PROJECT WITH URLS WITH TOKEN AUTOMATION
+22      COMPLETE PROJECT WITH DJANGO TOKEN AUTHENTICATION 
+23      COMPLETE PROJECT WITH JWT AUTHENTICATION
+24      THROTTLING --> GLOBALLY AND CLASS BASED
+25      THROTTLING --> CUSTOMIZED AND SCOPED RATE
