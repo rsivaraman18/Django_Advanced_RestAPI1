@@ -9,4 +9,12 @@ Setting Steps
     Step5 : git init
     Step6 : git remote add origin pastecodelink
     Step7 : git pull origin main
+    Step8 : git add .
+    Step9 : git commit -m "steps updated"
+    Step10 : git branch -a
+    Step11 : git branch -M main
+    step12 : git branch -a  
+    step13 : git push origin main
+    step14 :
+    step15 :
 
