@@ -25,8 +25,11 @@ urlpatterns = [
    path('watchlist/<int:id>/detailview_updatewatchlist/', Watchlistbyid.as_view()) ,
 
 
-   ### FILTER LEARN ---> http://127.0.0.1:8000/movieapi/reviews/siva/
-   path('reviews/<str:username>/', UserReviewsfilter.as_view()) ,
+   ### FILTERING USING USERNAME---> http://127.0.0.1:8000/movieapi/reviews/siva/
+   path('reviews/<str:username>/', UserReviewsfilter1.as_view()) ,
+
+   ### FILTERING USING QUERY
+   path('reviews/', UserReviewsfilter2.as_view()) ,
 
 
 ]

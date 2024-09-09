@@ -17,12 +17,20 @@ from rest_framework.throttling import ScopedRateThrottle
 URL  : http://127.0.0.1:8000/movieapi/reviews/siva/ 
        http://127.0.0.1:8000/movieapi/reviews/demo1/
 """
-class UserReviewsfilter(generics.ListAPIView):
+class UserReviewsfilter1(generics.ListAPIView):
     serializer_class = ReviewSerializer1
 
     def get_queryset(self):
      
         username = self.kwargs['username']
+        return MyReview.objects.filter(reviewer_name__username=username)
+
+
+class UserReviewsfilter2(generics.ListAPIView):
+    serializer_class = ReviewSerializer1
+
+    def get_queryset(self):
+        username = self.request.query_params.get('username',None)
         return MyReview.objects.filter(reviewer_name__username=username)
 
 
