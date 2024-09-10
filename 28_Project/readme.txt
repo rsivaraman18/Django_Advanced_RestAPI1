@@ -9,10 +9,54 @@ PROJECT 28 ---> PAGINATION -->51,57,56,55
             model = MyWatchlist
             fields = '__all__'  
 
+
 2.Pagination Types
     1.Page Number --57
     2.Limit Offset -- 56
     3.Cursor Pagination --55
 
+
 3.Create a new file -->pagination.py
+    3A.Pagination.py
+        from rest_framework.pagination import PageNumberPagination
+
+        class WatchlistPagination(PageNumberPagination):
+            page_size = 3
+
+    3B. Urls
+        path('watchlist_paginationview/',         watchlist_paginationview1.as_view()) ,
+
+    3C.Views
+        from Movieapp.pagination import WatchlistPagination
+        from rest_framework import filters
+        class watchlist_paginationview1(generics.ListAPIView):
+            queryset = MyWatchlist.objects.all()
+            serializer_class = WatchlistSerializer
+            pagination_class = WatchlistPagination
+            filter_backends = [filters.OrderingFilter]
+            search_fields = ['avg_rating']
+
+    3D.Check Urls
+        Url: http://127.0.0.1:8000/movieapi/watchlist_paginationview/
+        Method : GET
+        Output: {
+                    "count": 9,
+                    "next": "http://127.0.0.1:8000/movieapi/watchlist_paginationview/?page=2",
+                    "previous": null,
+                    "results": [
+                        {
+                            "id": 1,
+                            "platform": "Youtube",
+                            "title": "Jailor",
+                            "storyline": "Crime,Thriller",
+                            "active": true,
+                            "created": "2024-09-05",
+                            "avg_rating": 2.0,
+                            "number_rating": 2
+                        },
+                    ]
+                 }
+    
+
+
 
