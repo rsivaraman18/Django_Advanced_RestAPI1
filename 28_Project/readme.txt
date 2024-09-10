@@ -60,3 +60,32 @@ PROJECT 28 ---> PAGINATION -->51,57,56,55
 
 
 
+4.Like this Change any attribute at Pagination.py and check the Changes.
+    class WatchlistPagination(PageNumberPagination):
+    page_size = 3
+    ### REST ATTRIBUTE ARE OPTIONAL
+    # page_query_param  = 'p'
+    page_size_query_param  = 'newsize' #### http://127.0.0.1:8000/movieapi/watchlist_paginationview/?newsize=7
+    max_page_size =5  #### Restricted the maximum size.
+    # last_page_strings = 'end'   ### http://127.0.0.1:8000/movieapi/watchlist_paginationview/?page=end
+
+5.Pagination-LimitOffset
+
+    5A.Urls.py
+        path('watchlist_limitpaginationview/',    watchlist_limitpaginationview.as_view()) ,
+    5B.Views.py
+        from Movieapp.pagination import WatchlistPagination
+        from rest_framework import filters
+        class watchlist_limitpaginationview(generics.ListAPIView):
+            queryset = MyWatchlist.objects.all()
+            serializer_class = WatchlistSerializer
+            pagination_class = WatchlistPagination2LOP
+            filter_backends = [filters.OrderingFilter]
+            search_fields = ['avg_rating']
+    5C.Pagination.py
+        class WatchlistPagination2LOP(LimitOffsetPagination):
+        default_limit =5
+    5D.Check LOP
+        Url: http://127.0.0.1:8000/movieapi/watchlist_limitpaginationview/
+        Method: GET
+

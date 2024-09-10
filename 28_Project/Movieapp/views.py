@@ -9,7 +9,7 @@ from rest_framework import generics
 from.permission import *
 from Movieapp.throttling import ReviewCreateThrottle,ReviewAllThrottle
 from rest_framework.throttling import ScopedRateThrottle
-from Movieapp.pagination import WatchlistPagination
+from Movieapp.pagination import WatchlistPagination,WatchlistPagination2LOP
 
 
 ##### PROJECT - 28 PAGINATION #######
@@ -23,6 +23,18 @@ class watchlist_paginationview1(generics.ListAPIView):
     pagination_class = WatchlistPagination
     filter_backends = [filters.OrderingFilter]
     search_fields = ['avg_rating']
+
+
+### Limitoffset_Pagination
+from Movieapp.pagination import WatchlistPagination
+from rest_framework import filters
+class watchlist_limitpaginationview(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    pagination_class = WatchlistPagination2LOP
+    filter_backends = [filters.OrderingFilter]
+    search_fields = ['avg_rating']
+
 
 
 

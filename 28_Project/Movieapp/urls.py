@@ -37,6 +37,7 @@ urlpatterns = [
 
    # PROJECT 28 --> PAGINATION
    path('watchlist_paginationview/',         watchlist_paginationview1.as_view()) ,
+   path('watchlist_limitpaginationview/',    watchlist_limitpaginationview.as_view()) ,
    
 
 
