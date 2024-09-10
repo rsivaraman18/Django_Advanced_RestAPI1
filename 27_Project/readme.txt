@@ -78,7 +78,7 @@ NOTE:   1.Django-Filter package will support only for Generic API Views.
         Urls : http://127.0.0.1:8000/movieapi/allwatchlist/?title=vikram
                http://127.0.0.1:8000/movieapi/allwatchlist/?platform__name=netflix
                http://127.0.0.1:8000/movieapi/allwatchlist/?title=vikram&platform__name=netflix
-               
+
         Method: GET
         Body/Headers :--
         Output : [
@@ -124,3 +124,20 @@ NOTE:   1.Django-Filter package will support only for Generic API Views.
 
 
     
+8.Lets Work for search
+    8A.Urls.py
+        ### Searching -Approx Values
+        path('allwatchlist_search/',  Watchlistsearch1.as_view()) ,
+    8B.Views.py
+        from rest_framework import filters
+
+        class Watchlistsearch1(generics.ListAPIView):
+            queryset = MyWatchlist.objects.all()
+            serializer_class = WatchlistSerializer
+            filter_backends = [filters.SearchFilter]
+            search_fields = ['title', 'platform__name']
+    
+    8C.
+        URL : http://127.0.0.1:8000/movieapi/allwatchlist_search/?search=vi
+        Method : GET
+        Output : [search title or Platform that as "vi"]
