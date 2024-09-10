@@ -149,5 +149,6 @@ REST_FRAMEWORK = {
         'review-create': '100/day' ,
         'review-all': '5/day' ,
         'review-detail-throttle':'7/day',
-    } 
+    },
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'], 
 }

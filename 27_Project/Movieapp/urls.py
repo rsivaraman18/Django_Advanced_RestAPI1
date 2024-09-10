@@ -32,7 +32,7 @@ urlpatterns = [
    path('reviews/', UserReviewsfilter2.as_view()) ,
    
    ### Django -Filtering
-   path('allreviews/', UserReviewsfilter3.as_view()) ,
+   path('<int:pk>/allreviews/', UserReviewsfilter3.as_view()) ,
 
  
 

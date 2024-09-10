@@ -25,6 +25,12 @@ class UserReviewsfilter1(generics.ListAPIView):
         username = self.kwargs['username']
         return MyReview.objects.filter(reviewer_name__username=username)
 
+##########################################
+"""
+URL  : http://127.0.0.1:8000/movieapi/reviews/?username=siva 
+       http://127.0.0.1:8000/movieapi/reviews/?username=demo1
+"""
+
 
 class UserReviewsfilter2(generics.ListAPIView):
     serializer_class = ReviewSerializer1
@@ -34,11 +40,29 @@ class UserReviewsfilter2(generics.ListAPIView):
         return MyReview.objects.filter(reviewer_name__username=username)
 
 
+########################################################
+"""
+URL  : http://127.0.0.1:8000/movieapi/allreviews/
+       http://127.0.0.1:8000/movieapi/allreviews/?username=demo1
+"""
 
+from django_filters.rest_framework import DjangoFilterBackend
 
 class UserReviewsfilter3(generics.ListAPIView):
     serializer_class = ReviewSerializer1
-    filter_backends  = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['reviewer_name__username', 'active']  # 'username' will be mapped here
+
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return MyReview.objects.filter(watchlist=pk)
+
+    
+
+    # queryset         = MyReview.objects.all()
+    # serializer_class = ReviewSerializer1
+    # filter_backends  = [DjangoFilterBackend]
+    # filterset_fields = ['reviewer_name__username', 'active']
 
 
 
