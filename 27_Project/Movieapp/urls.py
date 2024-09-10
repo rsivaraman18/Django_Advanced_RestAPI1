@@ -30,7 +30,11 @@ urlpatterns = [
 
    ### FILTERING USING QUERY
    path('reviews/', UserReviewsfilter2.as_view()) ,
+   
+   ### Django -Filtering
+   path('allreviews/', UserReviewsfilter3.as_view()) ,
 
+ 
 
 ]
 

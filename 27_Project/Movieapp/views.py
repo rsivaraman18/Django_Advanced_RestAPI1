@@ -7,11 +7,11 @@ from . models import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
 from.permission import *
-
 from Movieapp.throttling import ReviewCreateThrottle,ReviewAllThrottle
 from rest_framework.throttling import ScopedRateThrottle
 
-
+### Django-filter FILTERING IMPORTS
+from django_filters.rest_framework import DjangoFilterBackend
 ##### TO UNDERSTAND FILTER ### WE PLAN TO WRITE A NEW CLASS
 """
 URL  : http://127.0.0.1:8000/movieapi/reviews/siva/ 
@@ -34,6 +34,11 @@ class UserReviewsfilter2(generics.ListAPIView):
         return MyReview.objects.filter(reviewer_name__username=username)
 
 
+
+
+class UserReviewsfilter3(generics.ListAPIView):
+    serializer_class = ReviewSerializer1
+    filter_backends  = [DjangoFilterBackend]
 
 
 
