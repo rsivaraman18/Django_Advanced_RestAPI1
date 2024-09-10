@@ -10,6 +10,26 @@ from.permission import *
 from Movieapp.throttling import ReviewCreateThrottle,ReviewAllThrottle
 from rest_framework.throttling import ScopedRateThrottle
 
+
+##### PROJECT - 28 PAGINATION #######
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###########################################################################
 ### Django-filter FILTERING IMPORTS
 from django_filters.rest_framework import DjangoFilterBackend
 ##### TO UNDERSTAND FILTER ### WE PLAN TO WRITE A NEW CLASS
@@ -108,7 +128,7 @@ class Watchlistorder1(generics.ListAPIView):
     filter_backends = [filters.OrderingFilter]
     search_fields = ['avg_rating']
 
- 
+################################## FILTERING ENDS HERE ############ 
 
 
 
