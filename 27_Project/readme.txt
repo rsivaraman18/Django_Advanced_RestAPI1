@@ -185,6 +185,6 @@ $	iregex	Regex search.
             http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=-title
             http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=title,-platform__name
         Method: GET
-        Output:
+        Output:[Based on the average rating]
 
     
