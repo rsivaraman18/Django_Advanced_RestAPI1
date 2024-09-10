@@ -36,6 +36,8 @@ urlpatterns = [
    path('allwatchlist_ordering/',         Watchlistorder1.as_view()) ,
 
    # PROJECT 28 --> PAGINATION
+   path('watchlist_paginationview/',         watchlist_paginationview1.as_view()) ,
+   
 
 
 

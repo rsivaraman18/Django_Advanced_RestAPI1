@@ -14,5 +14,5 @@ PROJECT 28 ---> PAGINATION -->51,57,56,55
     2.Limit Offset -- 56
     3.Cursor Pagination --55
 
-3.
+3.Create a new file -->pagination.py
 

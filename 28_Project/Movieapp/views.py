@@ -12,7 +12,15 @@ from rest_framework.throttling import ScopedRateThrottle
 
 
 ##### PROJECT - 28 PAGINATION #######
+### PAGINATION --> Watchlist 
 
+from rest_framework import filters
+
+class watchlist_paginationview1(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    filter_backends = [filters.OrderingFilter]
+    search_fields = ['avg_rating']
 
 
 
