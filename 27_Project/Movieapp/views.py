@@ -67,6 +67,39 @@ class Watchlistfilter4(generics.ListAPIView):
 
 
 
+"""Searching Using User parameters
+Watchlist Search
+"""
+
+from rest_framework import filters
+
+class Watchlistsearch1(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', 'platform__name']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

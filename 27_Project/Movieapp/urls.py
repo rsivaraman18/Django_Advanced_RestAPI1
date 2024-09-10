@@ -24,16 +24,19 @@ urlpatterns = [
    path('watchlist/showall_createwatchlist/',             Watchlist.as_view()) ,
    path('watchlist/<int:id>/detailview_updatewatchlist/', Watchlistbyid.as_view()) ,
 
-
+   # Filtering PROJECT- 26 & 27
    ### FILTERING USING USERNAME---> http://127.0.0.1:8000/movieapi/reviews/siva/
    path('reviews/<str:username>/', UserReviewsfilter1.as_view()) ,
-
-   ### FILTERING USING QUERY
-   path('reviews/', UserReviewsfilter2.as_view()) ,
    
+   ### FILTERING USING QUERY
+   path('reviews/',             UserReviewsfilter2.as_view()) ,
+
    ### Django -Filtering
    path('<int:pk>/allreviews/', UserReviewsfilter3.as_view()) ,
-   path('allwatchlist/',  Watchlistfilter4.as_view()) ,
+   path('allwatchlist/',        Watchlistfilter4.as_view()) ,
+
+   ### Searching -Approx Values
+   path('allwatchlist_search/',  Watchlistsearch1.as_view()) ,
 
  
 
