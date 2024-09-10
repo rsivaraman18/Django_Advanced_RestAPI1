@@ -11,5 +11,9 @@ class WatchlistPagination(PageNumberPagination):
 
 
 class WatchlistPagination2LOP(LimitOffsetPagination):
-    default_limit =5
-    
+    default_limit =3
+    max_limit = 4
+    limit_query_param = 'start'
+    offset_query_param = 'end'
+
+

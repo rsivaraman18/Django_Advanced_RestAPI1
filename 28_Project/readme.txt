@@ -82,10 +82,15 @@ PROJECT 28 ---> PAGINATION -->51,57,56,55
             pagination_class = WatchlistPagination2LOP
             filter_backends = [filters.OrderingFilter]
             search_fields = ['avg_rating']
+
     5C.Pagination.py
         class WatchlistPagination2LOP(LimitOffsetPagination):
         default_limit =5
+
     5D.Check LOP
         Url: http://127.0.0.1:8000/movieapi/watchlist_limitpaginationview/
         Method: GET
+
+
+    
 
