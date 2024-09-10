@@ -81,6 +81,36 @@ class Watchlistsearch1(generics.ListAPIView):
 
 
 
+"""
+Django-Search : STARTS WITH SEARCH -- 
+URL : http://127.0.0.1:8000/movieapi/allwatchlist_startswithsearch/?search=i
+"""
+from rest_framework import filters
+
+class Watchlistsearch2(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['^title','platform__name']
+
+
+
+"""
+Django-Ordering : Ordering
+URL : http://127.0.0.1:8000/movieapi/allwatchlist_startswithsearch/?search=i
+"""
+
+from rest_framework import filters
+
+class Watchlistorder1(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    filter_backends = [filters.OrderingFilter]
+    search_fields = ['avg_rating']
+
+ 
+
+
 
 
 

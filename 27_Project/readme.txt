@@ -141,3 +141,50 @@ NOTE:   1.Django-Filter package will support only for Generic API Views.
         URL : http://127.0.0.1:8000/movieapi/allwatchlist_search/?search=vi
         Method : GET
         Output : [search title or Platform that as "vi"]
+    Searching Done
+
+
+Searching Types
+Prefix	Lookup	
+^	istartswith	Starts-with search.
+=	iexact	Exact matches.
+$	iregex	Regex search.
+@	search	Full-text search (Currently only supported Django's PostgreSQL backend)
+
+9.You can try the Searching Types
+    To Check for starts with
+    9A.Urls
+        path('allwatchlist_startswithsearch/',  Watchlistsearch2.as_view()) ,
+    9B.Views
+        class Watchlistsearch2(generics.ListAPIView):
+        queryset = MyWatchlist.objects.all()
+        serializer_class = WatchlistSerializer
+        filter_backends = [filters.SearchFilter]
+        search_fields = ['^title']
+    9c.Check    
+        URL : http://127.0.0.1:8000/movieapi/allwatchlist_startswithsearch/?search=i
+        Method : GET
+        Output : [All Watchlist Title start with I]
+
+
+10.Lets Do for Ordering
+    10A.Urls.py
+        path('allwatchlist_ordering/',  Watchlistorder1.as_view()) ,
+
+    10B.Views.py
+        from rest_framework import filters
+        class Watchlistorder1(generics.ListAPIView):
+            queryset = MyWatchlist.objects.all()
+            serializer_class = WatchlistSerializer
+            filter_backends = [filters.OrderingFilter]
+            search_fields = ['avg_rating']
+
+    10C.Check
+        URL: http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=avg_rating
+            http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=title
+            http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=-title
+            http://127.0.0.1:8000/movieapi/allwatchlist_ordering/?ordering=title,-platform__name
+        Method: GET
+        Output:
+
+    

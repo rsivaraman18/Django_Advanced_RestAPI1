@@ -37,6 +37,13 @@ urlpatterns = [
 
    ### Searching -Approx Values
    path('allwatchlist_search/',  Watchlistsearch1.as_view()) ,
+   ### Search - Startswith
+   path('allwatchlist_startswithsearch/',  Watchlistsearch2.as_view()) ,
+
+   ### Django - Ordering
+
+   path('allwatchlist_ordering/',  Watchlistorder1.as_view()) ,
+
 
  
 
