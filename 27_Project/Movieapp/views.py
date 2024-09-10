@@ -57,14 +57,13 @@ class UserReviewsfilter3(generics.ListAPIView):
         pk = self.kwargs['pk']
         return MyReview.objects.filter(watchlist=pk)
 
-    
+# NOW LETS TRY FILTER WITH Watchlist
 
-    # queryset         = MyReview.objects.all()
-    # serializer_class = ReviewSerializer1
-    # filter_backends  = [DjangoFilterBackend]
-    # filterset_fields = ['reviewer_name__username', 'active']
-
-
+class Watchlistfilter4(generics.ListAPIView):
+    queryset = MyWatchlist.objects.all()
+    serializer_class = WatchlistSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['title', 'platform__name']
 
 
 

@@ -65,4 +65,62 @@ NOTE:   1.Django-Filter package will support only for Generic API Views.
                 }
             ]
 
+7.Lets Make this with Watchlist class
+    7A.Urls.py
+        path('allwatchlist/',  Watchlistfilter4.as_view()) ,
+    7B.Views.py
+        class Watchlistfilter4(generics.ListAPIView):
+        queryset = MyWatchlist.objects.all()
+        serializer_class = WatchlistSerializer
+        filter_backends = [DjangoFilterBackend]
+        filterset_fields = ['title', 'platform__name']
+    7C.Check Urls
+        Urls : http://127.0.0.1:8000/movieapi/allwatchlist/?title=vikram
+               http://127.0.0.1:8000/movieapi/allwatchlist/?platform__name=netflix
+               http://127.0.0.1:8000/movieapi/allwatchlist/?title=vikram&platform__name=netflix
+               
+        Method: GET
+        Body/Headers :--
+        Output : [
+                    {
+                        "id": 2,
+                        "reviewinfo": [
+                            {
+                                "id": 2,
+                                "reviewer_name": "siva",
+                                "rating": 4,
+                                "description": "Excellent",
+                                "active": false,
+                                "created": "2024-09-05T08:49:32.431447Z",
+                                "update": "2024-09-10T06:49:08.285828Z"
+                            },
+                            {
+                                "id": 10,
+                                "reviewer_name": "demo1",
+                                "rating": 4,
+                                "description": "Super!",
+                                "active": true,
+                                "created": "2024-09-06T10:57:43.323916Z",
+                                "update": "2024-09-06T10:57:43.323916Z"
+                            },
+                            {
+                                "id": 38,
+                                "reviewer_name": "demo4",
+                                "rating": 3,
+                                "description": "Extradionary!",
+                                "active": true,
+                                "created": "2024-09-06T11:08:01.898465Z",
+                                "update": "2024-09-06T11:08:01.898465Z"
+                            }
+                        ],
+                        "title": "Vikram",
+                        "storyline": "Crime,Suspense",
+                        "active": true,
+                        "created": "2024-09-05",
+                        "avg_rating": 3.5,
+                        "number_rating": 2,
+                        "platform": 2
+                    }]
+
+
     

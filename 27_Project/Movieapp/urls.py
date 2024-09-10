@@ -33,6 +33,7 @@ urlpatterns = [
    
    ### Django -Filtering
    path('<int:pk>/allreviews/', UserReviewsfilter3.as_view()) ,
+   path('allwatchlist/',  Watchlistfilter4.as_view()) ,
 
  
 
