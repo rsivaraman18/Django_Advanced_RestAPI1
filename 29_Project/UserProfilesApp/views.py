@@ -25,7 +25,7 @@ def registration_view(request):
             data['username'] = account.username
             data['email']    = account.email
             token = Token.objects.get(user=account).key
-            print('Token : ',token)
+            print('New User Token : ',token)
             data['token'] = token
             
         else:
