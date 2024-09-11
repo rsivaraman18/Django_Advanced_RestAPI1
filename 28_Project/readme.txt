@@ -92,5 +92,13 @@ PROJECT 28 ---> PAGINATION -->51,57,56,55
         Method: GET
 
 
-    
+6.Lets Do for Cursor Pagination
+    6A.Urls.py
+        
+
+    6B.Views.py
+
+    6c.Pagination.py
+
+    6D.Check with Postman
 

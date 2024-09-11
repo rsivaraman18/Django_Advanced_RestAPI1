@@ -1,4 +1,4 @@
-from rest_framework.pagination import PageNumberPagination,LimitOffsetPagination 
+from rest_framework.pagination import PageNumberPagination,LimitOffsetPagination ,CursorPagination
 
 
 class WatchlistPagination(PageNumberPagination):
@@ -17,3 +17,8 @@ class WatchlistPagination2LOP(LimitOffsetPagination):
     offset_query_param = 'end'
 
 
+
+class watchlist_CursorPagination(CursorPagination):
+    page_size = 10
+    ordering = 'created'     # Result gives based on the field given . '-created' --> Descends
+    # cursor_query_param = 'record'
