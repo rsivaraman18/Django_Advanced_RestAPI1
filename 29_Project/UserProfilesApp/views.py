@@ -6,8 +6,10 @@ from UserProfilesApp.serializers import *
 from UserProfilesApp.models import *
 
 
-
-# New User Registration and Token Generation Automatically
+"""
+1.REGISTER --> When a New User Register New Token Will Be Generated.
+2.LOGOUT   --> On Logout the User Token will be Deleted.
+"""
 
 @api_view(['POST',])
 def registration_view(request):
@@ -17,8 +19,6 @@ def registration_view(request):
         serializer = RegistrationSerializer(data=uservalues)
         data = {}
         
-
-
         if serializer.is_valid():
             account = serializer.save()
             data['response'] = "Registration Successfully !!!"
@@ -31,20 +31,17 @@ def registration_view(request):
         else:
             data = serializer.errors
         
-        return Response(data)
+        return Response(data,status.HTTP_201_CREATED)
     
 
 
-
-
-'''This logout is to delete a User token'''
 
 @api_view(['POST',])
 def logout_view(request):
 
     if request.method == 'POST':
         request.user.auth_token.delete()
-        return Response({'message':f'{request.user.username} Token Deleted Successfully'},status=status.HTTP_200_OK) 
+        return Response({'message':f'{request.user.username} User Token Deleted Successfully'},status=status.HTTP_200_OK) 
 
 
 
@@ -57,30 +54,5 @@ def logout_view(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-# ### GENERAL METHOD -- NEW USER REGISTRATION
-# @api_view(['POST',])
-# def registration_view(request):
-
-#     if request.method == 'POST':
-#         uservalues = request.data
-#         serializer = RegistrationSerializer(data=uservalues)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-
-
-        
-
-        
 
 
