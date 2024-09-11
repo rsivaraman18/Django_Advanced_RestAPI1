@@ -5,8 +5,9 @@ from . views import *
 
 
 urlpatterns = [
-   ### WATCHLIST URLS --> CREATED BY API VIEW
-
+   ### STREAM PLATFORM URLS --> CREATED BY API VIEW
+   path('stream/showall_createstream/', StreamPlatform_APIView.as_view(), name="StreamCreateViewall"),
+   path('stream/<int:id>/detailview_updatestream/', StreamPlatform_APIView_byID.as_view(), name="StreamUpdateID"),
 
 
 
@@ -29,8 +30,8 @@ urlpatterns = [
 
 
    ### STREAMS --> Create,Viewall,Detail ID View,Delete
-   path('stream/showall_createstream/',              StreamPlatform.as_view()),
-   path('stream/<int:id>/detailview_updatestream/',  StreamPlatformbyID.as_view()),
+   # path('stream/showall_createstream/',              StreamPlatform.as_view()),
+   # path('stream/<int:id>/detailview_updatestream/',  StreamPlatformbyID.as_view()),
 
 
 

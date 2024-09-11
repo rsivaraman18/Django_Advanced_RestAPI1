@@ -19,6 +19,72 @@ ALL VIEW CLASS THAT DEALS WITH TESTCASE ARE ARRANGED AT TOP.
 2.WATCHLIST
 3.REVIEWS
 """
+#### STREAM PLATFORM 
+
+class StreamPlatform_APIView(APIView):
+    permission_classes = [IsAdminOrReadonly]
+
+    def get(self,request):
+        platform          = MyStreamPlatform.objects.all()
+        serial_platform   = StreamPlatformSerializer(platform,many=True,context={'request':request})
+        return Response(serial_platform.data)
+    
+    def post(self,request):
+        user = request.data
+        serial_data = StreamPlatformSerializer(data=user)
+        if serial_data.is_valid():
+            serial_data.save()
+            return Response(serial_data.data)
+        else:
+            return Response(serial_data.errors)
+        
+
+
+class StreamPlatform_APIView_byID(APIView):
+    permission_classes = [IsAdminOrReadonly]
+
+    def get(self,request,id):
+        try:
+            platform = MyStreamPlatform.objects.get(id=id)
+        except MyStreamPlatform.DoesNotExist:
+            return Response({'error':'Not Found'},status=status.HTTP_404_NOT_FOUND)
+        
+        serial_platform = StreamPlatformSerializer(platform,context={'request':request})
+        return Response(serial_platform.data)
+    
+    ## PUT --> Update the Entire Object
+    def put(self,request,id):
+        user        = request.data
+        platform    = MyStreamPlatform.objects.get(id=id)
+        serial_data = StreamPlatformSerializer(platform,data=user,)
+        if serial_data.is_valid():
+            serial_data.save()
+            return Response(serial_data.data)
+        else:
+            return Response(serial_data.errors,status=status.HTTP_400_BAD_REQUEST)
+
+    ## Validation Panna Field Compulsory Vennum
+    def patch(self,request,id):
+        user = request.data
+        platform = MyStreamPlatform.objects.get(id=id)
+        serial_data = StreamPlatformSerializer(platform,data=user,partial=True)
+        if serial_data.is_valid():
+            serial_data.save()
+            return Response(serial_data.data)
+        else:
+            return Response(serial_data.errors,status=status.HTTP_400_BAD_REQUEST)
+    
+    
+
+    def delete(self,request,id):
+        platform = MyStreamPlatform.objects.get(id=id)
+        platform.delete()
+        content = {'msg':  f'Stream - {id} Deleted'}
+        return Response(content,status=status.HTTP_204_NO_CONTENT) 
+
+
+
+
 
 
 
