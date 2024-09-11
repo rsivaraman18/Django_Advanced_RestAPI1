@@ -11,5 +11,5 @@ Lets Start
 
 1.TestCase 1 - User Registration
 2.TestCase 2 - User Login & Logout
-
+3.TestCase 3 - Watchlist
 

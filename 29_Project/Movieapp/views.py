@@ -12,8 +12,76 @@ from rest_framework.throttling import ScopedRateThrottle
 from Movieapp.pagination import WatchlistPagination,WatchlistPagination2LOP,watchlist_CursorPagination
 
 
-##### PROJECT - 28 PAGINATION #######
-### PAGINATION --> Watchlist 
+"""
+    PROJECT - 29 TEST CASES --> Test,py
+ALL VIEW CLASS THAT DEALS WITH TESTCASE ARE ARRANGED AT TOP.
+1.STREAM
+2.WATCHLIST
+3.REVIEWS
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####        -x-x-x-x  PROJECT 29 Ends Here  -x-x-x-x
+
+"""
+PROJECT - 28 PAGINATION
+3 Types Of Pagination Created for Watchlist --> PageNumber,LimitOffset,Cursor Pagination
+"""
 
 ### Type 1: Page Number Pagination
 from Movieapp.pagination import WatchlistPagination
@@ -49,21 +117,14 @@ class watchlist_cursorpagination(generics.ListAPIView):
 
 
 
+####        -x-x-x-x  PROJECT 28 Ends Here  -x-x-x-x
 
 
+"""
+                PROJECT 27
+DJANGO FILTER --> FILTER , ORDER,SEARCHING
+"""
 
-
-
-
-
-
-
-
-
-
-
-
-###########################################################################
 ### Django-filter FILTERING IMPORTS
 from django_filters.rest_framework import DjangoFilterBackend
 ##### TO UNDERSTAND FILTER ### WE PLAN TO WRITE A NEW CLASS
@@ -165,7 +226,7 @@ class Watchlistorder1(generics.ListAPIView):
 ################################## FILTERING ENDS HERE ############ 
 
 
-
+####        -x-x-x-x  PROJECT 27 Ends Here  -x-x-x-x
 
 
 

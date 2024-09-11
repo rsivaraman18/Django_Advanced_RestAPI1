@@ -4,9 +4,23 @@ from . views import *
 
 
 
-
-
 urlpatterns = [
+   ### WATCHLIST URLS --> CREATED BY API VIEW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    ###  REVIEWS --> Create,Update,View All,Detail Id View
    path('movie/showall_reviews/',            ReviewAll.as_view()),
    path('movie/<int:pk>/review_create/',     AddNewReviewtoWatchlist.as_view()),
